@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:purify/models/order.dart'; 
+import 'package:purify/models/order.dart';
 import 'package:purify/Pages/HomePage.dart';
 import 'package:purify/Pages/CartPage.dart';
 import 'package:purify/Pages/MyAccountScreen.dart';
@@ -16,9 +16,11 @@ class MyApp extends StatelessWidget {
   final List<Order> orders = [
     Order(
       orderId: 1,
-      items: [],
-      totalAmount: 0,
-      deliveryCost: 0,
+      items: [], // Add your items here
+      totalAmount: 0, // Add appropriate total amount
+      deliveryCost: 0, // Add appropriate delivery cost
+      status: 'Pending', // Provide a status value
+      paymentMethod: 'Card', // Provide a payment method value
     ),
     // Add more orders as needed
   ];
@@ -36,10 +38,12 @@ class MyApp extends StatelessWidget {
         "/": (context) => HomePage(),
         "/cartPage": (context) => CartPage(),
         "/myAccount": (context) => MyAccountScreen(),
-        "/myOrders": (context) => MyOrdersScreen(orders: orders), // Pass orders to MyOrdersScreen
+        "/myOrders": (context) =>
+            MyOrdersScreen(orders: orders), // Pass orders to MyOrdersScreen
         "/myWishList": (context) => MyWishListScreen(),
         "/settings": (context) => SettingsScreen(),
-        "/payment": (context) => PaymentScreen(), // Use PaymentScreen for payment route
+        "/payment": (context) =>
+            PaymentScreen(), // Use PaymentScreen for payment route
       },
     );
   }
